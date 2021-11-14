@@ -9,21 +9,18 @@ int main(void) {
   for (int i = 0; i < n; i++) {
     cin >> arr.at(i);
   }
+  sort(arr.begin(), arr.end(), greater<int>());
 
-  int ans = 0;
-  int now = 1;
-  while (true) {
-    now = arr.at(now-1);
-    if (now == 2) {
+  int ans = 1;
+  int rice_cake = arr.at(0);
+  for (int i = 1; i < n; i++) {
+    if (arr.at(i) < rice_cake) {
       ans++;
-      break;
-    } else if (ans > n) {
-      ans = -1;
-      break;
+      rice_cake = arr.at(i);
     }
-    ans++;
   }
 
   cout << ans << endl;
+
   return 0;
 }

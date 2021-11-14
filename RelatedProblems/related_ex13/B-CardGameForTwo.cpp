@@ -9,21 +9,18 @@ int main(void) {
   for (int i = 0; i < n; i++) {
     cin >> arr.at(i);
   }
+  sort(arr.begin(), arr.end(), greater<int>());
 
   int ans = 0;
-  int now = 1;
-  while (true) {
-    now = arr.at(now-1);
-    if (now == 2) {
-      ans++;
-      break;
-    } else if (ans > n) {
-      ans = -1;
-      break;
+  for (int i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+      ans += arr.at(i);
+    } else {
+      ans -= arr.at(i);
     }
-    ans++;
   }
 
   cout << ans << endl;
+
   return 0;
 }
