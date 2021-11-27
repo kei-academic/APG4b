@@ -19,7 +19,7 @@ int32_t main() {
   cin >> h >> w;
 
   vector<string> a(h);
-  rep(i, h) cin >> a[i];
+  rep(i, h) cin >> a.at(i);
 
   vector<int> row(h), col(w);
   rep(i, h) rep(j, w) if(a.at(i).at(j) == '#') {
